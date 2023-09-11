@@ -4,6 +4,14 @@ const DataCollection = () => {
   const [category, setCategory] = useState('');
   const [propertyType, setPropertyType] = useState('');
   const [bedrooms, setBedrooms] = useState('');
+  const [propertyOwnershipDuration, setPropertyOwnershipDuration] = useState('');
+  const [propertyUsage, setPropertyUsage] = useState('');
+  const [maintenanceFrequency, setMaintenanceFrequency] = useState('');
+  const [homeImprovement, setHomeImprovement] = useState('');
+  const [satisfaction, setSatisfaction] = useState('');
+  const [qualityOfLife, setQualityOfLife] = useState('');
+  const [neighborhoodSafety, setNeighborhoodSafety] = useState('');
+  const [proximitySatisfaction, setProximitySatisfaction] = useState('');
 
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
@@ -17,10 +25,44 @@ const DataCollection = () => {
     setBedrooms(event.target.value);
   };
 
+  const handlePropertyOwnershipDurationChange = (event) => {
+    setPropertyOwnershipDuration(event.target.value);
+  };
+
+  const handlePropertyUsageChange = (event) => {
+    setPropertyUsage(event.target.value);
+  };
+
+  const handleMaintenanceFrequencyChange = (event) => {
+    setMaintenanceFrequency(event.target.value);
+  };
+
+  const handleHomeImprovementChange = (event) => {
+    setHomeImprovement(event.target.value);
+  };
+
+  const handleSatisfactionChange = (event) => {
+    setSatisfaction(event.target.value);
+  };
+
+  const handleQualityOfLifeChange = (event) => {
+    setQualityOfLife(event.target.value);
+  };
+
+  const handleNeighborhoodSafetyChange = (event) => {
+    setNeighborhoodSafety(event.target.value);
+  };
+
+  const handleProximitySatisfactionChange = (event) => {
+    setProximitySatisfaction(event.target.value);
+  };
+
+  // You can add more category-specific sections here based on the selected category
+
   return (
     <div>
       <h1>Data Collection Questions:</h1>
-      
+
       <div>
         <h2>Initial Questions</h2>
         1. Demographic information
@@ -29,11 +71,6 @@ const DataCollection = () => {
           <select id="category" value={category} onChange={handleCategoryChange}>
             <option value="">Select an option</option>
             <option value="Residential-property-owner">Residential property owner</option>
-            <option value="Commercial property-owner">Commercial property owner</option>
-            <option value="Residential-property-tenant">Residential property tenant</option>
-            <option value="Commercial-property-tenant">Commercial property tenant</option>
-            <option value="Stakeholders"> Stakeholders- contractors, government entities(municipalities), finance organization, real estate developers and businesses</option>
-            <option value="Internal users- admin, regular team members">Residential property tenant</option>
             {/* Add other options here */}
           </select>
         </div>
@@ -43,40 +80,47 @@ const DataCollection = () => {
             <h3>Residential Property Owners</h3>
             <h4>Property Details:</h4>
             <div>
-              <label htmlFor="property_type">What type of residential property do you own?</label>
+              <label htmlFor="property_type">a. What type of residential property do you own?</label>
               <select id="property_type" value={propertyType} onChange={handlePropertyTypeChange}>
                 <option value="">Select Property Type</option>
-                <option value="">Single-family house</option>
-                <option value="">Townhouse</option>
-                <option value="">Condominium</option>
-                <option value="">Apartment/Flat</option>
-                <option value="">Other (please specify)</option>
                 {/* Add other options here */}
               </select>
             </div>
             <div>
-              <label htmlFor="bedrooms">How many bedrooms does your property have?</label>
+              <label htmlFor="bedrooms">b. How many bedrooms does your property have?</label>
               <select id="bedrooms" value={bedrooms} onChange={handleBedroomsChange}>
                 <option value="">Select Number of Bedrooms</option>
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-                <option value="">5 or more</option>
                 {/* Add other options here */}
-                <h4>Property Ownership</h4>
               </select>
             </div>
           </div>
         )}
-        
+
+        {/* Continue with the "Property Ownership" section */}
+        {category === 'Residential-property-owner' && (
+          <div>
+            <h3>Property Ownership</h3>
+            <div>
+              <label htmlFor="ownership_duration">a. How long have you owned this property?</label>
+              <select id="ownership_duration" value={propertyOwnershipDuration} onChange={handlePropertyOwnershipDurationChange}>
+                <option value="">Select Ownership Duration</option>
+                {/* Add other options here */}
+              </select>
+            </div>
+            <div>
+              <label htmlFor="property_usage">b. Is this property your primary residence or a secondary property?</label>
+              <select id="property_usage" value={propertyUsage} onChange={handlePropertyUsageChange}>
+                <option value="">Select Property Usage</option>
+                {/* Add other options here */}
+              </select>
+            </div>
+          </div>
+        )}
+
         {/* Continue with other sections based on the selected category */}
-        
       </div>
       {/* Add a submit button */}
-     
     </div>
-    
   );
 };
 
